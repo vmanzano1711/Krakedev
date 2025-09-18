@@ -1,0 +1,5 @@
+soy  el archivo 2
+
+
+he cambiado soy mejor archivo usar git status
+
