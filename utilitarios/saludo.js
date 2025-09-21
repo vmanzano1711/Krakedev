@@ -5,11 +5,13 @@ saludar=function(){
     let apellido=recuperarTexto("txtApellido");
     let edad=recuperarInt("txtEdad");
     let estatura=recuperarFloat("txtEstatura");
-    let mensajeBienvenida="Bienvenido"+nombre+" "+apellido;
+    let mensajeBienvenida="Bienvenid@"+" "+nombre+" "+apellido;
     
-    mostrarTexto("lblResultado",mensajeBienvenida);
-    
+    mostrarTexto("lblResultado", mensajeBienvenida);
+
     mostrarImagen("imgSaludo","./imagenes/yagane.gif");
+
+    mostrarTextoEnCaja("txtNombre","");
 }
 
 mostrarImagen=function(idComponente,rutaImagen){
@@ -22,6 +24,12 @@ mostrarTexto=function(idComponente,mensaje){
     let componente;
     componente=document.getElementById(idComponente);
     componente.innerText= mensaje;
+}
+
+mostrarTextoEnCaja=function(idComponente,mensaje){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.value= mensaje;
 }
 
 recuperarTexto=function(idComponente){
