@@ -9,8 +9,7 @@ jugar=function(){
    }else{
       cambiarTexto("lbResultado","ES MENOR A 3");
       cambiarTexto("lbResultado","NO ES TU DIA");
-   }
-   
+   } 
 }
 
 lanzarDados=function(){
