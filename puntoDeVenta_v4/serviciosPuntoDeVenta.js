@@ -21,7 +21,7 @@ calcularValorDescuento = function (subtotal, porcentajeDescuento) {
 
 calcularIVA = function (subtotal, descuento) {
     let baseImponible = subtotal - descuento;
-    return baseImponible * 0.12; // IVA 15%
+    return baseImponible * 0.15; 
 }
 
 calcularTotal = function (subtotal, descuento, iva) {
