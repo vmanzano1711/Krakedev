@@ -18,17 +18,20 @@ calcularPromedioNotas = function() {
     var promedio = calcularPromedio(n1, n2, n3);
 
     // c) Mostrar en pantalla con 2 decimales
-    cambiarTexto('lblPromedio', promedio.toFixed(2));
+    cambiarTexto('lblPromedio', promedio.toFixed(2),);
 
     // Mostrar mensaje e imagen según el promedio
     if (promedio > 0 && promedio < 5) {
+        cambiarTexto('lblMensaje','REPROBADO');
         cambiarImagen('imgEstado', 'img/reprobado.gif');
     } else if (promedio >= 5 && promedio <= 8) {
+        cambiarTexto('lblMensaje', 'BUEN TRABAJO');
         cambiarImagen('imgEstado', 'img/buen-trabajo.gif');
     } else if (promedio > 8 && promedio <= 10) {
+       cambiarTexto('lblMensaje','EXCELENTE');
         cambiarImagen('imgEstado', 'img/excelente.gif');
     } else {
-        cambiarTexto('lblPromedio', 'DATOS INCORRECTOS');
+        cambiarTexto('lblMensaje', 'DATOS INCORRECTOS');
         cambiarImagen('imgEstado', 'img/datos-incorrectos.gif');
     }
 }

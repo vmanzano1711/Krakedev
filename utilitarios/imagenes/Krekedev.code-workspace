@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "Krekedev",
+			"path": "../../../Krekedev"
+		},
+		{
+			"name": "Krakedev",
+			"path": "../.."
+		}
+	],
+	"settings": {}
+}
