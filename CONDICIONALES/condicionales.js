@@ -1,5 +1,3 @@
-//////revisar antes de enviar 
-
 // 1. Función darPermiso
 // El hijo puede salir si saca más de 90 en Matemática o Física o Geometría
 function darPermiso(notaMatematica, notaFisica, notaGeometria) {
