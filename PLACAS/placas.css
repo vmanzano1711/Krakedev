@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contenedor {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px gray;
+    width: 400px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.campo {
+    margin: 10px 0;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.botones {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botones input {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.resultado {
+    margin-top: 20px;
+    font-size: 18px;
+}

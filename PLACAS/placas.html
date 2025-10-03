@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Restricción de Placas</title>
+    <script src="placas.js"></script>
+    <link rel="stylesheet" href="placas.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Control de Circulación</h1>
+
+        <div class="campo">
+            <label for="txtPlaca">Número de Placa:</label>
+            <input type="text" id="txtPlaca" />
+        </div>
+
+        <div class="campo">
+            <label for="txtDia">Día de la Semana:</label>
+            <input type="text" id="txtDia" />
+        </div>
+
+        <div class="botones">
+            <input type="button" value="Verificar" onclick="verificarCirculacion();" />
+            <input type="button" value="Limpiar" onclick="limpiar();" />
+        </div>
+
+        <div class="resultado">
+            <strong>Resultado: </strong>
+            <span id="lblResultado">---</span>
+        </div>
+    </div>
+</body>
+</html>
