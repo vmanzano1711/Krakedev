@@ -27,3 +27,10 @@ function guardarPalabra() {
     palabraSecreta = palabra;
     console.log("Palabra guardada:", palabraSecreta);
 }
+
+////PASO 2 FUNCION MOSTRAR LETRA 
+
+mostrarLetra=funtion(letra, posicion) {
+    let divId = "div" + posicion;
+    document.getElementById(divId).textContent = letra;
+}
