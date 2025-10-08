@@ -9,13 +9,13 @@ let palabraSecreta = "";
 
 function guardarPalabra() {
     let palabra = document.getElementById('txtSecreta').value;
-    
+
     // Validar que tenga 5 caracteres
     if (palabra.length !== 5) {
         alert("Debe ingresar una palabra de 5 letras mayúsculas");
         return;
     }
-    
+
     // Validar que sean mayúsculas
     for (let i = 0; i < palabra.length; i++) {
         if (!esMayuscula(palabra[i])) {
@@ -23,14 +23,26 @@ function guardarPalabra() {
             return;
         }
     }
-    
+
     palabraSecreta = palabra;
     console.log("Palabra guardada:", palabraSecreta);
 }
 
 ////PASO 2 FUNCION MOSTRAR LETRA 
 
-mostrarLetra=funtion(letra, posicion) {
+mostrarLetra = funtion(letra, posicion) {
     let divId = "div" + posicion;
     document.getElementById(divId).textContent = letra;
+}
+
+//// paso 3 funcion validad 
+validad = funtion(letra){
+    let letrasEcontradas = 0;
+    For(let i = 0; i < palabraSecreta.length; i++) {
+        if (palabraSecreta(i) === letra) {
+            mostrarLetra(letra, i);
+            letrasEcontradas++;
+        }
+    }
+    return letrasEcontradas;
 }
