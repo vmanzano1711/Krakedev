@@ -46,3 +46,35 @@ validad = funtion(letra){
     }
     return letrasEcontradas;
 }
+
+//////paso 4 - 5 funcion ingresar letra 
+    let intentos=0;
+    let coincidencias=0;
+    let errores=0;
+
+    ingresarLetra=function(){
+        let letraInput=document.getElementById("txtLetra");
+        let letra=letraInput.value;
+
+        if (!esMayuscula(letra)){
+            alert("SOLO SE ACEPTAN MAYUSCULAS");
+            return
+        }
+        intentos++;
+        let letrasEcontradas=validar(letra);
+        if (letrasEcontradas >0 ){
+            coincidencias +=letrasEcontradas;
+        } else {
+            errores++;
+            alert("la letra no es parte de la palabra");
+
+        }
+        if (coincidencias===5){
+            alert("HA GANADO ");
+        }
+        if (intentos===10) {
+            alert("HA PERDIDO");
+        }
+        letraInput.value="";
+
+    }
