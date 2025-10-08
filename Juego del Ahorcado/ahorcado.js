@@ -78,3 +78,40 @@ validad = funtion(letra){
         letraInput.value="";
 
     }
+
+    ////////paso 6 funcion mostrar ahoracado 
+
+    mostrarAhorco=funtion(){
+        let imagen=document.getElementById("ahorcadoImagen");
+        switch(errores){
+            case 1;
+            imagen.src="Ahorcado_01.png";
+            break;
+            case 2;
+            imagen.src="Ahorcado_02.png";
+            break;
+            case 3;
+            imagen.src="Ahorcado_03.png";
+            break;
+            case 4;
+            imagen.src="Ahorcado_04.png";
+            break;
+            case 5;
+            imagen.src="Ahorcado_05.png";
+            break;
+            case 6;
+            imagen.src="Ahorcado_06.png";
+            break;
+            case 7;
+            imagen.src="Ahorcado_07.png";
+            break;
+            case 8;
+            imagen.src="Ahorcado_08.png";
+            break;
+            case 9;
+            imagen.src="Ahorcado_09.png";
+            break;
+
+        }
+    }
+///////////caso 7 
