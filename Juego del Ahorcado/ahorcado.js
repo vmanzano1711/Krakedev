@@ -1,13 +1,13 @@
 //No se olvide de respirar, mantenga la calma y demuestre lo que sabe
 //// paso cero en mayusculas
-function esMayuscula(caracter) {
+esMayuscula=funtion(caracter) {
     let codigo = caracter.charCodeAt(0);
     return (codigo >= 65 && codigo <= 90);
 }
 /// paso 1 palabra secreta 
 let palabraSecreta = "";
 
-function guardarPalabra() {
+guardarPalabra=function() {
     let palabra = document.getElementById('txtSecreta').value;
 
     // Validar que tenga 5 caracteres
@@ -67,51 +67,53 @@ validad = funtion(letra){
         } else {
             errores++;
             alert("la letra no es parte de la palabra");
+            mostrarAhorcado();
 
         }
         if (coincidencias===5){
-            alert("HA GANADO ");
+            document.getElementById("imagenAhorcada"),src="ganador.gif";
         }
-        if (intentos===10) {
-            alert("HA PERDIDO");
+        if (coincidencias===10){
+            document.getElementById("imageAhorcado"), src="gameOver.gif";
         }
+        
         letraInput.value="";
 
     }
 
     ////////paso 6 funcion mostrar ahoracado 
 
-    mostrarAhorco=funtion(){
+    mostrarAhorcado=funtion(){
         let imagen=document.getElementById("ahorcadoImagen");
         switch(errores){
-            case 1;
+            case 1:
             imagen.src="Ahorcado_01.png";
             break;
-            case 2;
+            case 2:
             imagen.src="Ahorcado_02.png";
             break;
-            case 3;
+            case 3:
             imagen.src="Ahorcado_03.png";
             break;
-            case 4;
+            case 4:
             imagen.src="Ahorcado_04.png";
             break;
-            case 5;
+            case 5:
             imagen.src="Ahorcado_05.png";
             break;
-            case 6;
+            case 6:
             imagen.src="Ahorcado_06.png";
             break;
-            case 7;
+            case 7:
             imagen.src="Ahorcado_07.png";
             break;
-            case 8;
+            case 8:
             imagen.src="Ahorcado_08.png";
             break;
-            case 9;
+            case 9:
             imagen.src="Ahorcado_09.png";
             break;
 
         }
     }
-///////////caso 7 
+
