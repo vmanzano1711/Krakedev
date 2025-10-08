@@ -25,6 +25,7 @@ recorrerCadena = function(cadena) {
         caracter = cadena.charAt(posicion);
         console.log("Caracter " + caracter + " posicion " + posicion);
     }
+   mostrarTexto("lblResultado", caracter);
 }
 
 cadenaInvertida = function(cadena) {
@@ -38,5 +39,26 @@ cadenaInvertida = function(cadena) {
         console.log("Caracter " + caracter + " posicion " + posicion);
     }
 
-    
+    return caracter;
+
 }
+
+buscarLetra=function(cadena,letra){
+    let letraIterada;
+    let existeLetra=false;
+    for (let i=0;i<cadena.length;i++){
+        letraIterada=cadena.charAt(i);
+        if(letraIterada==letra){
+            existeLetra=true;
+        }
+    }
+    if(existeLetra==true){
+        console.log("existe");
+        return true;
+    }else{
+          console.log("no existe");  
+          return false;
+    }
+
+}
+
