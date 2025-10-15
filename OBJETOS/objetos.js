@@ -14,7 +14,7 @@ probarAtributos = function () {
     }
 }
 
-crearProducto=function() {
+crearProducto = function () {
     // Crear el primer producto
     let producto1 = {
         nombre: "Camiseta",
@@ -44,3 +44,57 @@ crearProducto=function() {
         console.log("Ambos productos tienen el mismo stock");
     }
 }
+
+modificarAtributos = function () {
+    let cuenta = {
+        numero: "0502722580",
+        saldo: 0.0
+    }
+    cuenta.saldo = 100,
+        cuenta.saldo += 10;
+    console.log(cuenta.saldo);
+}
+
+crearCliente = function () {
+    let cliente = {
+        cedula: "1714975198",
+        nombre: "Vladimir"
+    }
+    let cliente1 = {};
+    cliente1.nombre = "vladimir";
+    cliente1.apellido = "Manzano";
+    cliente1.cedula = "1714975198";
+    console.log(cliente.nombre + " " + cliente.cedula);
+    alert(cliente.nombre);
+}
+
+probarIncrementoSaldo = function () {
+    let cuenta = { numero: "7682", saldo: 10000 }
+    incrementarSaldo(cuenta,77777);
+    console.log(cuenta.saldo);
+}
+
+probarDeterminarMayor = function () {
+    let per1 = {nombre:"Luciana",edad:11};
+    let per2 = {nombre: "Eliana", edad: 18};
+    let mayor;
+    mayor = determinarMayor(per1, per2);
+    if (mayor != null) {
+        console.log("El mayor es " + mayor.nombre +" "+ mayor.edad +" "+ "Anos");
+    }
+}
+
+incrementarSaldo = function (cuenta, monto) {
+    cuenta.saldo += monto;
+}
+
+determinarMayor = function (persona1, persona2) {
+    if (persona1.edad > persona2.edad) {
+        return persona1;
+    } else if (persona2.edad > persona1.edad) {
+        return persona2;
+    } else {
+        return null;
+    }
+}
+
