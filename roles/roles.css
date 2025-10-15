@@ -1,5 +1,5 @@
 body{
-      background-size: cover;
+    background-size: cover;
     margin-left: 0px;
     margin-right: 0px;
 }
@@ -7,7 +7,6 @@ body{
     display: flex;
     flex:1;
     flex-direction: column;
-    
 }
 .menu{
     display: flex;
@@ -18,17 +17,14 @@ body{
     padding-top: 10px;
     padding-bottom: 10px;
 }
-
 .principal{
     display: flex;
-   
     margin-left: 0px;
     margin-right:0px;
     flex-direction: row;
     margin-top: 10px;
     align-items: center;
     flex: 1;
-
 }
 .titulo{
     display: flex;
@@ -43,7 +39,6 @@ body{
     flex:1;
     justify-content: center;
     align-items: center;
-    
 }
 .areaResultado{
     display: flex;
@@ -51,14 +46,12 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
 .imagen{
     display: flex;
     flex:1;
     justify-content: center;
     align-items: center;
-  
 }
 .estiloBoton{
     background-color: #217023; 
@@ -69,7 +62,6 @@ body{
     font-size: 14px;
     border-radius: 5px;
     width: 120px;
-
 }
 .menu{
     flex: 1;
@@ -80,26 +72,23 @@ body{
 }
 tbody tr:nth-child(odd) {
     background-color: #908efc;
-  }
-  
-  tbody tr:nth-child(even) {
+}
+tbody tr:nth-child(even) {
     background-color: #6a51cf;
-  }
-  
-  tbody tr {
+}
+tbody tr {
     background-image: url(noise.png);
-  }
-  
-  table {
+}
+table {
     background-color: #0b0c0c;
     width: 100%;
-  }
-  td{
+}
+td{
     text-align: center;
-  }
-  .areaTabla{
+}
+.areaTabla{
     margin-top: 20px;
-  }
+}
 .estiloBoton:hover {
     background-color:white; 
     color: #217023;
@@ -115,7 +104,6 @@ tbody tr:nth-child(odd) {
     text-align: center;
     font-size: 14px;
     border-radius: 5px;
-
 }
 .botones{
     display: flex;
@@ -138,7 +126,6 @@ tbody tr:nth-child(odd) {
 .cajaTexto{
     border-radius: 4px;
     border-color: #217023;
-
     font-size: 14px;
     color:rgb(85, 83, 83);
 }
@@ -150,7 +137,6 @@ tbody tr:nth-child(odd) {
     width: 180px;
 }
 .ingresoDatos{
-
     padding: 10px;
     display: flex;
     flex-direction: row;
@@ -172,7 +158,6 @@ tbody tr:nth-child(odd) {
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 30px;
-
 }
 .imagenResultado{
     display: flex;
@@ -186,7 +171,6 @@ tbody tr:nth-child(odd) {
     font-style: italic;
     font-size: 14px;
 }
-
 .tablaEmpleados {
     width: 80%;
     margin: 20px auto;
@@ -194,19 +178,15 @@ tbody tr:nth-child(odd) {
     text-align: center;
     font-family: Arial, sans-serif;
 }
-
 .tablaEmpleados th {
     background-color: #003366;
     color: white;
     padding: 8px;
 }
-
 .tablaEmpleados td {
     padding: 8px;
     border: 1px solid #ccc;
 }
-
 .tablaEmpleados tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-
