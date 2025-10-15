@@ -198,9 +198,68 @@ function limpiar() {
 }
 
 // =====================
+//  FUNCIONES PARA ROL
+// =====================
+
+function buscarPorRol() {
+    let cedulaBusqueda = recuperarTexto("txtBusquedaCedulaRol");
+    let empleadoEncontrado = buscarEmpleado(cedulaBusqueda);
+    
+    if (empleadoEncontrado === null) {
+        alert("EMPLEADO NO EXISTE");
+    } else {
+        mostrarTexto("infoCedula", empleadoEncontrado.cedula);
+        mostrarTexto("infoNombre", empleadoEncontrado.nombre + " " + empleadoEncontrado.apellido);
+        mostrarTexto("infoSueldo", empleadoEncontrado.sueldo.toFixed(2));
+    }
+}
+
+function calcularAporteEmpleado(sueldo) {
+    return sueldo * 0.0945;
+}
+
+function calcularValorAPagar(sueldo, aporte, descuento) {
+    return sueldo - aporte - descuento;
+}
+
+function calcularRol() {
+    let sueldoTexto = recuperarTextoDiv("infoSueldo");
+    let descuentosTexto = recuperarTexto("txtDescuentos");
+    
+    // Validar que el descuento sea un flotante
+    let descuentoValido = /^\d+(\.\d+)?$/.test(descuentosTexto);
+    let descuentoNumero = parseFloat(descuentosTexto);
+    let sueldoNumero = parseFloat(sueldoTexto);
+    
+    if (!descuentoValido) {
+        mostrarTexto("lblErrorDescuentos", "Descuento debe ser un número");
+        return;
+    }
+    
+    if (descuentoNumero < 0) {
+        mostrarTexto("lblErrorDescuentos", "Descuento no puede ser negativo");
+        return;
+    }
+    
+    if (descuentoNumero > sueldoNumero) {
+        mostrarTexto("lblErrorDescuentos", "Descuento no puede ser mayor al sueldo");
+        return;
+    }
+    
+    mostrarTexto("lblErrorDescuentos", "");
+    
+    let aporte = calcularAporteEmpleado(sueldoNumero);
+    let valorPagar = calcularValorAPagar(sueldoNumero, aporte, descuentoNumero);
+    
+    mostrarTexto("infoIESS", aporte.toFixed(2));
+    mostrarTexto("infoPago", valorPagar.toFixed(2));
+}
+
+// =====================
 //  AL CARGAR LA PÁGINA
 // =====================
 window.onload = function() {
-    mostrarOpcionEmpleado();
+    // Mostrar la pantalla de ROL primero (PARTE 5 - punto 1)
+    mostrarOpcionRol();
     deshabilitarCampos();
 };
