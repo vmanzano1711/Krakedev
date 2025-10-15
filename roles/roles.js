@@ -5,6 +5,7 @@ let empleados = [
 ];
 
 let esNuevo = false;
+let roles = []; // Arreglo global para roles
 
 // =====================
 //  FUNCIONES DE MENÚ
@@ -21,12 +22,15 @@ function mostrarOpcionRol() {
     mostrarComponente("divRol");
     ocultarComponente("divEmpleado");
     ocultarComponente("divResumen");
+    deshabilitarComponente("btnGuardarRol"); // Deshabilitar botón GUARDAR al entrar
 }
 
 function mostrarOpcionResumen() {
     mostrarComponente("divResumen");
     ocultarComponente("divEmpleado");
     ocultarComponente("divRol");
+    mostrarRoles();
+    mostrarTotales();
 }
 
 // =====================
@@ -218,6 +222,10 @@ function calcularAporteEmpleado(sueldo) {
     return sueldo * 0.0945;
 }
 
+function calcularAporteEmpleador(sueldo) {
+    return sueldo * 0.1115;
+}
+
 function calcularValorAPagar(sueldo, aporte, descuento) {
     return sueldo - aporte - descuento;
 }
@@ -253,6 +261,99 @@ function calcularRol() {
     
     mostrarTexto("infoIESS", aporte.toFixed(2));
     mostrarTexto("infoPago", valorPagar.toFixed(2));
+    
+    // Habilitar el botón GUARDAR cuando el cálculo es exitoso
+    habilitarComponente("btnGuardarRol");
+}
+
+// =====================
+//  FUNCIONES PARA GUARDAR ROL
+// =====================
+
+function buscarRol(cedula) {
+    for (let i = 0; i < roles.length; i++) {
+        if (roles[i].cedula === cedula) {
+            return roles[i];
+        }
+    }
+    return null;
+}
+
+function agregarRol(rol) {
+    if (buscarRol(rol.cedula) === null) {
+        roles.push(rol);
+        alert("ROL GUARDADO EXITOSAMENTE");
+        return true;
+    } else {
+        alert("YA EXISTE UN ROL CON LA CEDULA " + rol.cedula);
+        return false;
+    }
+}
+
+function guardarRol() {
+    let cedula = recuperarTextoDiv("infoCedula");
+    let nombre = recuperarTextoDiv("infoNombre");
+    let sueldo = parseFloat(recuperarTextoDiv("infoSueldo"));
+    let valorAPagar = parseFloat(recuperarTextoDiv("infoPago"));
+    let aporteEmpleado = parseFloat(recuperarTextoDiv("infoIESS"));
+    let aporteEmpleador = calcularAporteEmpleador(sueldo);
+    
+    let rol = {
+        cedula: cedula,
+        nombre: nombre,
+        sueldo: sueldo,
+        valorAPagar: valorAPagar,
+        aporteEmpleado: aporteEmpleado,
+        aporteEmpleador: aporteEmpleador
+    };
+    
+    if (agregarRol(rol)) {
+        deshabilitarComponente("btnGuardarRol");
+    }
+}
+
+// =====================
+//  FUNCIONES PARA RESUMEN
+// =====================
+
+function mostrarRoles() {
+    let contenedor = document.getElementById("tablaResumen");
+    let tabla = "<table border='1' class='tablaEmpleados'>";
+    tabla += "<tr><th>CEDULA</th><th>NOMBRE</th><th>VALOR A PAGAR</th><th>APORTE EMPLEADO</th><th>APORTE EMPLEADOR</th></tr>";
+
+    for (let i = 0; i < roles.length; i++) {
+        let rol = roles[i];
+        tabla += "<tr>";
+        tabla += "<td>" + rol.cedula + "</td>";
+        tabla += "<td>" + rol.nombre + "</td>";
+        tabla += "<td>" + rol.valorAPagar.toFixed(2) + "</td>";
+        tabla += "<td>" + rol.aporteEmpleado.toFixed(2) + "</td>";
+        tabla += "<td>" + rol.aporteEmpleador.toFixed(2) + "</td>";
+        tabla += "</tr>";
+    }
+
+    tabla += "</table>";
+    contenedor.innerHTML = tabla;
+}
+
+function mostrarTotales() {
+    let totalEmpleado = 0;
+    let totalEmpleador = 0;
+    let totalAPagar = 0;
+    
+    for (let i = 0; i < roles.length; i++) {
+        let rol = roles[i];
+        totalEmpleado += rol.aporteEmpleado;
+        totalEmpleador += rol.aporteEmpleador;
+        totalAPagar += rol.valorAPagar;
+    }
+    
+    let totalNomina = totalEmpleado + totalEmpleador + totalAPagar;
+    
+    mostrarTexto("infoAporteEmpleado", totalEmpleado.toFixed(2));
+    mostrarTexto("infoAporteEmpresa", totalEmpleador.toFixed(2));
+    mostrarTexto("infoTotalPago", totalAPagar.toFixed(2));
+    mostrarTexto("infoTotalNomina", totalNomina.toFixed(2));
 }
 
 // =====================
@@ -262,4 +363,5 @@ window.onload = function() {
     // Mostrar la pantalla de ROL primero (PARTE 5 - punto 1)
     mostrarOpcionRol();
     deshabilitarCampos();
+    deshabilitarComponente("btnGuardarRol"); // Deshabilitar botón GUARDAR ROL al inicio
 };

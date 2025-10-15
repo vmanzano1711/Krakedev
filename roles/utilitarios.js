@@ -1,4 +1,3 @@
-
 function mostrarImagen(idComponente, rutaImagen){
     let componente;
     componente = document.getElementById(idComponente);
