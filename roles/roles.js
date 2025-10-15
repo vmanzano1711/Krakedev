@@ -101,6 +101,29 @@ function agregarEmpleado(empleado) {
     return false;
 }
 
+function ejecutarBusqueda() {
+    let cedulaBusqueda = recuperarTexto("txtBusquedaCedula");
+    let empleadoEncontrado = buscarEmpleado(cedulaBusqueda);
+    
+    if (empleadoEncontrado === null) {
+        alert("EMPLEADO NO EXISTE");
+    } else {
+        mostrarTextoEnCaja("txtCedula", empleadoEncontrado.cedula);
+        mostrarTextoEnCaja("txtNombre", empleadoEncontrado.nombre);
+        mostrarTextoEnCaja("txtApellido", empleadoEncontrado.apellido);
+        mostrarTextoEnCaja("txtSueldo", empleadoEncontrado.sueldo.toFixed(2));
+        
+        // Habilitar solo nombre, apellido y sueldo, mantener cédula deshabilitada
+        deshabilitarComponente("txtCedula");
+        habilitarComponente("txtNombre");
+        habilitarComponente("txtApellido");
+        habilitarComponente("txtSueldo");
+        habilitarComponente("btnGuardar");
+        
+        esNuevo = false;
+    }
+}
+
 function guardar() {
     let cedula = recuperarTexto("txtCedula");
     let nombre = recuperarTexto("txtNombre").toUpperCase();
@@ -123,6 +146,7 @@ function guardar() {
 
     if (cedulaValida && nombreValido && apellidoValido && sueldoValido) {
         if (esNuevo) {
+            // CREAR NUEVO EMPLEADO
             let nuevoEmpleado = {
                 cedula: cedula,
                 nombre: nombre,
@@ -138,8 +162,39 @@ function guardar() {
             } else {
                 alert("YA EXISTE UN EMPLEADO CON LA CEDULA " + cedula);
             }
+        } else {
+            // MODIFICAR EMPLEADO EXISTENTE
+            let empleadoModificar = buscarEmpleado(cedula);
+            if (empleadoModificar !== null) {
+                empleadoModificar.nombre = nombre;
+                empleadoModificar.apellido = apellido;
+                empleadoModificar.sueldo = sueldoNumero;
+                
+                alert("EMPLEADO MODIFICADO EXITOSAMENTE");
+                mostrarEmpleados();
+                deshabilitarCampos();
+                esNuevo = false;
+            }
         }
     }
+}
+
+function limpiar() {
+    mostrarTextoEnCaja("txtCedula", "");
+    mostrarTextoEnCaja("txtNombre", "");
+    mostrarTextoEnCaja("txtApellido", "");
+    mostrarTextoEnCaja("txtSueldo", "");
+    mostrarTextoEnCaja("txtBusquedaCedula", "");
+    
+    // Limpiar mensajes de error
+    mostrarTexto("lblErrorCedula", "");
+    mostrarTexto("lblErrorNombre", "");
+    mostrarTexto("lblErrorApellido", "");
+    mostrarTexto("lblErrorSueldo", "");
+    mostrarTexto("lblErrorBusqueda", "");
+    
+    esNuevo = false;
+    deshabilitarCampos();
 }
 
 // =====================
