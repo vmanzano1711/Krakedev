@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Evaluación - Personas</title>
+  <style>
+    body { font-family: Arial; margin: 30px; }
+    label { display: block; margin-top: 10px; }
+    input { padding: 5px; width: 200px; }
+    button { margin-top: 10px; padding: 6px 12px; }
+    .error { color: red; font-size: 13px; }
+    table { border-collapse: collapse; margin-top: 20px; width: 400px; }
+    th, td { border: 1px solid #999; padding: 6px; text-align: left; }
+    #resultado { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h2>Agregar Personas</h2>
+
+  <!-- Campo para nombre -->
+  <label>Nombre:</label>
+  <input type="text" id="txtNombre">
+  <div id="errorNombre" class="error"></div>
+
+  <!-- Campo para edad -->
+  <label>Edad:</label>
+  <input type="number" id="txtEdad">
+  <div id="errorEdad" class="error"></div>
+
+  <!-- Botones -->
+  <br>
+  <button id="btnGuardar">GUARDAR</button>
+  <button id="btnMayor">ENCONTRAR MAYOR</button>
+  <button id="btnMenor">ENCONTRAR MENOR</button>
+
+  <!-- Resultado -->
+  <div id="resultado"></div>
+
+  <!-- Tabla de personas -->
+  <table id="tablaPersonas">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- Enlazar los archivos JavaScript -->
+  <script src="utilitarios.js"></script>
+  <script src="orden.js"></script>
+</body>
+</html>
