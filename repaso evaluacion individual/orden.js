@@ -20,7 +20,7 @@ function mostrarTabla() {
     cuerpo.innerHTML += fila;
   }
 }
-paso 3
+////paso 3
 function validar(nombre, edad) {
   let esValido = true;
 
@@ -46,4 +46,29 @@ function validar(nombre, edad) {
 
   return esValido;
 }
-    
+////paso 4
+function agregarPersona() {
+  // Obtener los valores del formulario
+  let nombre = document.getElementById('txtNombre').value;
+  let edad = parseInt(document.getElementById('txtEdad').value);
+
+  // Validar datos
+  if (!validar(nombre, edad)) {
+    return; // Si hay error, no sigue
+  }
+
+  // Crear objeto persona
+  let nuevaPersona = { nombre: nombre, edad: edad };
+
+  // Agregar al arreglo
+  personas.push(nuevaPersona);
+
+  // Limpiar campos
+  document.getElementById('txtNombre').value = "";
+  document.getElementById('txtEdad').value = "";
+
+  // Actualizar tabla
+  mostrarTabla();
+
+  document.getElementById('resultado').textContent = "Persona agregada correctamente.";
+}
