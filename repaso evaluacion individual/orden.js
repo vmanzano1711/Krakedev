@@ -7,7 +7,7 @@ let personas = [
   { nombre: "Diana", edad: 12 },
   { nombre: "Benja", edad: 5 }
 ];
-paso 2
+/////paso 2
 
 function mostrarTabla() {
   // Buscamos el cuerpo de la tabla
