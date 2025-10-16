@@ -72,3 +72,25 @@ function agregarPersona() {
 
   document.getElementById('resultado').textContent = "Persona agregada correctamente.";
 }
+//////////paso 5
+
+function encontrarMayor() {
+  // Empezamos suponiendo que la primera persona es la mayor
+  let personaMayor = personas[0];
+
+  // Recorremos el resto del arreglo
+  for (let i = 1; i < personas.length; i++) {
+    if (personas[i].edad > personaMayor.edad) {
+      personaMayor = personas[i];
+    }
+  }
+
+  return personaMayor;
+}
+/////parte 6
+
+function determinarMayor() {
+  let mayor = encontrarMayor();
+  document.getElementById('resultado').textContent =
+    "La persona mayor es: " + mayor.nombre + " con " + mayor.edad + " años.";
+}
