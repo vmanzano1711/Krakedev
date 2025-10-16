@@ -94,3 +94,32 @@ function determinarMayor() {
   document.getElementById('resultado').textContent =
     "La persona mayor es: " + mayor.nombre + " con " + mayor.edad + " años.";
 }
+
+////////parte 7
+function encontrarMenor() {
+  let personaMenor = personas[0];
+
+  for (let i = 1; i < personas.length; i++) {
+    if (personas[i].edad < personaMenor.edad) {
+      personaMenor = personas[i];
+    }
+  }
+
+  return personaMenor;
+}
+
+function determinarMenor() {
+  let menor = encontrarMenor();
+  document.getElementById('resultado').textContent =
+    "La persona menor es: " + menor.nombre + " con " + menor.edad + " años.";
+}
+
+////parte 8
+
+// Cuando se carga la página
+mostrarTabla();
+
+// Conectamos botones con funciones
+document.getElementById('btnGuardar').addEventListener('click', agregarPersona);
+document.getElementById('btnMayor').addEventListener('click', determinarMayor);
+document.getElementById('btnMenor').addEventListener('click', determinarMenor);
